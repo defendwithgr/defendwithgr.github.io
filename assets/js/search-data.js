@@ -47,7 +47,12 @@ ninja.data = [{
           section: "News",},{id: "news-graduated-from-model-engineering-college-thrikkakara-india-cusat-b-tech-in-cse",
           title: 'Graduated from Model Engineering College, Thrikkakara, India (CUSAT), B-Tech in CSE',
           description: "",
-          section: "News",},{id: "projects-cybersecurity-incident-response-plan",
+          section: "News",},{id: "news-why-smart-security-aware-people-still-fall-for-phishing",
+          title: 'Why Smart, Security-Aware People Still Fall for Phishing?',
+          description: "",
+          section: "News",handler: () => {
+              window.location.href = "/news/why-smart-people-fall-for-phishing/";
+            },},{id: "projects-cybersecurity-incident-response-plan",
           title: 'Cybersecurity Incident Response Plan',
           description: "Comprehensive incident response framework for Big Leaf Enterprise",
           section: "Projects",handler: () => {
