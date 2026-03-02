@@ -37,10 +37,10 @@ Attackers know this very well. Most phishing campaigns are less about technical 
 
 If an email looks like it's from a CEO, manager, or someone "important," a tiny voice in our head says:
 
-> *"Don't make them wait."*  
-> *"Just get it done."*
+> _"Don't make them wait."_  
+> _"Just get it done."_
 
-So when we see: *"Hi, can you urgently process this payment?"* — many people act first, question later. It's not about not knowing what phishing is. It's about not wanting to risk upsetting someone senior.
+So when we see: _"Hi, can you urgently process this payment?"_ — many people act first, question later. It's not about not knowing what phishing is. It's about not wanting to risk upsetting someone senior.
 
 ---
 
@@ -48,8 +48,8 @@ So when we see: *"Hi, can you urgently process this payment?"* — many people a
 
 How many phishing emails sound like this?
 
-- *"Your account will be locked in 24 hours."*
-- *"Immediate action required to avoid penalties."*
+- _"Your account will be locked in 24 hours."_
+- _"Immediate action required to avoid penalties."_
 
 The second we feel that jolt of anxiety, our brain switches into "fix it now" mode. We read faster. We think less. We click more. It's the same reason we rush through tasks right before a deadline. The email becomes "just one more thing to clear" so we can breathe again.
 
@@ -59,11 +59,11 @@ The second we feel that jolt of anxiety, our brain switches into "fix it now" mo
 
 Not all phishing is scary. Some of it is tempting:
 
-- *"Updated bonus scheme attached."*
-- *"Exclusive invite just for you."*
-- *"You've been selected…"*
+- _"Updated bonus scheme attached."_
+- _"Exclusive invite just for you."_
+- _"You've been selected…"_
 
-Some part of us knows this could be suspicious. But another part thinks: *"What if this is real? I don't want to miss it."*
+Some part of us knows this could be suspicious. But another part thinks: _"What if this is real? I don't want to miss it."_
 
 That tiny "what if" is often enough to push a click — especially on a long day when you've had nothing but problems and finally see something that looks like good news.
 
@@ -91,7 +91,7 @@ Then an email drops in:
 
 > **From:** "Finance Director"  
 > **Subject:** "Urgent: payment before 5 PM."  
-> *"We need this processed today. Penalties if delayed. Use this new portal link — the old one is down. Thanks for acting quickly on this."*
+> _"We need this processed today. Penalties if delayed. Use this new portal link — the old one is down. Thanks for acting quickly on this."_
 
 In that moment, what feels riskier?
 
@@ -122,19 +122,19 @@ If the safe path is easy and familiar, people are more likely to take it.
 
 Instead of only teaching "look at the sender, check the URL," we should also say:
 
-- *"If you feel rushed, scared, or pressured, that's your sign to slow down."*
-- *"If an email makes you feel panic or excitement, pause before you act."*
+- _"If you feel rushed, scared, or pressured, that's your sign to slow down."_
+- _"If an email makes you feel panic or excitement, pause before you act."_
 
 Teaching people to **notice their own emotional state** is just as important as teaching them to spot technical clues.
 
 ### 3. Make "I need to verify this" a strength, not a risk
 
-A lot of people know something feels off, but they don't feel safe saying: *"Let me double-check this."*
+A lot of people know something feels off, but they don't feel safe saying: _"Let me double-check this."_
 
 Leaders can help by:
 
 - Publicly praising people who verified something suspicious.
-- Sharing real stories of *"We almost lost money, but someone spoke up."*
+- Sharing real stories of _"We almost lost money, but someone spoke up."_
 - Making it clear that no one gets in trouble for double-checking.
 
 When people feel psychologically safe, they're far more likely to trust their instincts.
@@ -145,8 +145,8 @@ When people feel psychologically safe, they're far more likely to trust their in
 
 Next time an email demands something from you, try this:
 
-- ✅ Ask yourself: *"How am I feeling right now?"* — Tired, rushed, anxious, or excited = **slow down**.
-- ✅ Ask: *"Would this person normally ask me this in this way?"*
+- ✅ Ask yourself: _"How am I feeling right now?"_ — Tired, rushed, anxious, or excited = **slow down**.
+- ✅ Ask: _"Would this person normally ask me this in this way?"_
 - ✅ For money, passwords, and sensitive data: verify in another channel (a known phone number or internal chat).
 
 These are small steps — but they protect real people and real organizations.
@@ -163,4 +163,4 @@ That's the shift I'd love to see more of:
 
 ---
 
-*#Cyberpsychology #Phishing #Cybersecurity #HumanFactors #Infosec*
+_#Cyberpsychology #Phishing #Cybersecurity #HumanFactors #Infosec_
