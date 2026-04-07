@@ -19,34 +19,40 @@ Build a comprehensive enterprise-grade Windows Server and Active Directory envir
 ## Implementation Details
 
 ### Infrastructure Deployment
+
 - Deployed Windows Server 2022 Datacenter virtual machine on Microsoft Azure
 - Configured network settings, storage, and compute resources
 - Implemented proper VM sizing and resource allocation
 
 ### Active Directory Domain Services (AD DS)
+
 - Installed Active Directory Domain Services role
 - Promoted server to Domain Controller
 - Configured domain functional levels and forest structure
 - Established DNS integration for domain services
 
 ### Organizational Structure
+
 - Created hierarchical Organizational Units (OUs) based on business functions
 - Structured OUs following enterprise best practices
 - Implemented logical grouping for users, computers, and groups
 
 ### User & Group Management
+
 - Created user accounts with appropriate naming conventions
 - Established security groups for role-based access control
 - Configured group nesting and delegation principles
 - Implemented least-privilege access model
 
 ### Group Policy Configuration
+
 - Configured Group Policy Objects (GPOs) for security hardening
 - Implemented password complexity requirements and account lockout policies
 - Created software restriction policies to prevent unauthorized applications
 - Applied GPOs at appropriate OU levels for granular control
 
 ### Security Implementation
+
 - Followed least-privilege principles throughout configuration
 - Implemented security baseline configurations
 - Configured audit policies for monitoring and compliance
@@ -86,4 +92,4 @@ Build a comprehensive enterprise-grade Windows Server and Active Directory envir
 
 ---
 
-*This home lab project demonstrates practical enterprise infrastructure skills and cloud platform proficiency, providing a foundation for real-world Windows Server and Active Directory administration.*
+_This home lab project demonstrates practical enterprise infrastructure skills and cloud platform proficiency, providing a foundation for real-world Windows Server and Active Directory administration._

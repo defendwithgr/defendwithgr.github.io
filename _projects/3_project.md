@@ -8,8 +8,8 @@ category: research
 
 ## Project Overview
 
-<!-- **Status:** Active Research Project  
-**Started:** Nov 2025  
+<!-- **Status:** Active Research Project
+**Started:** Nov 2025
 **Focus:** Leveraging AI to automate and enhance security operations -->
 
 ## Project Goal
