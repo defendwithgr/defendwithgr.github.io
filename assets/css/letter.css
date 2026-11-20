@@ -1,0 +1,265 @@
+/* Retro desktop-OS portfolio home: denim wallpaper, blue window chrome, cream panels.
+   Standalone: no Bootstrap dependency. */
+
+:root {
+  --denim: #1b527f;
+  --denim-deep: #123a5a;
+  --win-blue-1: #1c6bff;
+  --win-blue-2: #0646d8;
+  --cream: #fffef8;
+  --cream-2: #faf7ed;
+  --ink: #121b2a;
+  --muted: #536074;
+  --lime: #d7ff45;
+  --orange: #ee591f;
+  --teal: #64b0ba;
+  --mint: #a4ffc2;
+  --bevel: #d9dcd8;
+  --line: rgba(18, 27, 42, 0.22);
+  --focus: #d7ff45;
+}
+
+* { box-sizing: border-box; }
+
+html { background: var(--denim-deep); }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding-bottom: 60px;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--ink);
+  line-height: 1.6;
+  font-size: 16px;
+  /* denim-style wallpaper, drawn in CSS */
+  background-color: var(--denim);
+  background-image:
+    radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.12), transparent 40%),
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.04) 0 2px, transparent 2px 6px),
+    repeating-linear-gradient(-45deg, rgba(0, 0, 0, 0.05) 0 2px, transparent 2px 6px);
+  background-attachment: fixed;
+}
+
+a { color: #0646d8; }
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 3px solid var(--focus); outline-offset: 2px;
+}
+
+.skip-link {
+  position: absolute; left: -999px; top: 0;
+  background: var(--cream); padding: 6px 10px; z-index: 200;
+}
+.skip-link:focus { left: 8px; top: 8px; }
+
+/* ---------- Boot screen ---------- */
+.boot {
+  position: fixed; inset: 0; z-index: 300;
+  background: #050505;
+  color: var(--lime);
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px;
+  font-family: "VT323", monospace; font-size: 30px;
+  transition: opacity 300ms ease;
+}
+.boot.is-done { opacity: 0; pointer-events: none; }
+.boot[hidden] { display: none; }
+.boot .cursor { animation: blink 1s steps(1) infinite; }
+.boot-skip {
+  background: none; border: 1px solid var(--lime); color: var(--lime);
+  font: inherit; padding: 4px 12px; cursor: pointer;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* ---------- Menu bar ---------- */
+.topbar {
+  position: sticky; top: 0; z-index: 50;
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  padding: 6px 14px;
+  background: linear-gradient(var(--cream), var(--bevel));
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.25);
+}
+.brand {
+  display: flex; align-items: center; gap: 8px;
+  font-family: "VT323", monospace; font-size: 26px; line-height: 1;
+  color: var(--ink); text-decoration: none;
+}
+.brand-mark { font-size: 20px; }
+.topnav { display: flex; gap: 14px; flex-wrap: wrap; margin-left: auto; }
+.topnav a {
+  color: var(--ink); text-decoration: none; font-size: 15px;
+  padding: 2px 6px; border: 1px solid transparent;
+}
+.topnav a:hover { border-color: var(--ink); background: var(--cream-2); }
+.search-btn {
+  border: 1px solid var(--ink); background: var(--cream-2); color: var(--ink);
+  padding: 4px 10px; font: inherit; font-size: 14px; cursor: pointer;
+  box-shadow: inset -1px -1px 0 rgba(0, 0, 0, 0.3), inset 1px 1px 0 #fff;
+}
+kbd {
+  font-family: inherit; font-size: 12px; padding: 0 5px;
+  border: 1px solid var(--ink); background: var(--cream);
+}
+
+/* ---------- Window chrome (shared) ---------- */
+.win {
+  background: var(--cream);
+  border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.35);
+  margin: 0 0 28px;
+}
+.titlebar {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+  height: 34px; padding: 0 6px 0 10px;
+  background: linear-gradient(var(--win-blue-1), var(--win-blue-2));
+  color: #fff;
+  border-bottom: 2px solid var(--ink);
+  font-family: "VT323", monospace; font-size: 24px; line-height: 1;
+}
+.titlebar .title { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.titlebar .ctl {
+  display: inline-grid; place-items: center;
+  width: 22px; height: 20px; margin-left: 4px;
+  background: var(--bevel); color: var(--ink);
+  border: 1px solid var(--ink); font-family: inherit; font-size: 16px; line-height: 1;
+}
+.win-body { padding: 22px 24px; }
+
+/* ---------- Hero ---------- */
+main { display: block; max-width: 900px; margin: 0 auto; padding: 28px 16px 0; }
+.hero-win { margin-top: 12px; }
+.eyebrow {
+  font-family: "Caveat", cursive; font-size: 30px; line-height: 1.1;
+  margin: 0; color: var(--orange);
+}
+.hero h1 {
+  font-family: "Playfair Display", Georgia, serif; font-weight: 700;
+  font-size: clamp(30px, 5vw, 50px); line-height: 1.1; margin: 4px 0 10px;
+}
+.tagline { color: var(--muted); font-size: 18px; margin: 0 0 20px; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.btn {
+  display: inline-block; padding: 8px 16px; color: var(--ink); text-decoration: none;
+  background: var(--bevel); border: 2px solid var(--ink);
+  box-shadow: inset -2px -2px 0 rgba(0, 0, 0, 0.3), inset 2px 2px 0 #fff;
+  font-weight: 600;
+}
+.btn:hover { background: var(--cream-2); }
+.btn.primary { background: var(--win-blue-2); color: #fff; }
+.btn.primary:hover { background: var(--win-blue-1); }
+
+/* ---------- Desktop icons ---------- */
+.icons {
+  display: flex; flex-wrap: wrap; gap: 14px; justify-content: flex-start;
+  max-width: 900px; margin: 0 auto 26px; padding: 0 16px;
+}
+.icon {
+  width: 96px; text-align: center; color: #fff; text-decoration: none;
+  font-size: 15px; text-shadow: 1px 1px 0 var(--ink);
+}
+.icon span.glyph {
+  display: grid; place-items: center; width: 60px; height: 60px; margin: 0 auto 6px;
+  background: var(--cream); border: 2px solid var(--ink); font-size: 30px;
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.4);
+}
+.icon:hover span.glyph { background: var(--lime); }
+
+/* ---------- Letter ---------- */
+.letter-win { margin-top: 0; }
+.letter-win h2 {
+  font-family: "Playfair Display", Georgia, serif; font-weight: 700;
+  font-size: 26px; margin: 0 0 12px;
+}
+.letter-win p { margin: 0 0 14px; }
+.sign { font-family: "Caveat", cursive; font-size: 32px; color: var(--win-blue-2); }
+.letter-links { font-size: 15px; color: var(--muted); }
+
+/* ---------- Sections & cards ---------- */
+.section-win h2 {
+  font-family: "Playfair Display", Georgia, serif; font-weight: 700;
+  font-size: 24px; margin: 0 0 14px;
+}
+.cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 14px; }
+.card {
+  background: var(--cream-2); border: 2px solid var(--ink);
+  padding: 14px 16px 12px;
+}
+.card h3 { font-family: "Playfair Display", Georgia, serif; font-size: 19px; margin: 2px 0 4px; }
+.card h3 a { color: var(--ink); }
+.card ul { padding-left: 18px; margin: 8px 0 0; font-size: 15px; color: var(--muted); }
+.card p { margin: 0 0 8px; }
+.card-kicker {
+  font-family: "VT323", monospace; font-size: 20px; line-height: 1;
+  color: var(--orange); margin: 0 0 4px; text-transform: uppercase;
+}
+.subtle { color: var(--muted); font-size: 15px; margin: 0; }
+
+.contact-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+
+/* ---------- Taskbar ---------- */
+.taskbar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+  height: 50px; display: flex; align-items: center; gap: 10px; padding: 0 10px;
+  background: linear-gradient(var(--cream), var(--bevel));
+  border-top: 2px solid var(--ink);
+}
+.start {
+  font-family: "VT323", monospace; font-size: 22px; line-height: 1;
+  padding: 4px 12px; color: #fff; text-decoration: none;
+  background: linear-gradient(var(--win-blue-1), var(--win-blue-2));
+  border: 2px solid var(--ink);
+}
+.taskbar-link {
+  font-size: 14px; color: var(--ink); text-decoration: none;
+  padding: 4px 10px; border: 1px solid var(--ink); background: var(--cream-2);
+}
+.taskbar-link:hover { background: var(--lime); }
+.taskbar-clock { margin-left: auto; font-family: "VT323", monospace; font-size: 22px; }
+
+/* ---------- Search palette ---------- */
+.palette {
+  position: fixed; inset: 0; z-index: 250;
+  background: rgba(5, 5, 5, 0.45);
+  display: flex; justify-content: center; align-items: flex-start;
+  padding: 12vh 16px 16px;
+}
+.palette[hidden] { display: none; }
+.palette-box {
+  width: min(560px, 100%); max-height: 70vh;
+  background: var(--cream); border: 2px solid var(--ink);
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.4);
+  display: flex; flex-direction: column;
+}
+.palette-box .titlebar { flex: none; }
+.palette-inner { padding: 14px; display: flex; flex-direction: column; gap: 10px; overflow: hidden; }
+#palette-input {
+  font: inherit; font-size: 17px; padding: 8px 10px;
+  border: 2px solid var(--ink); background: #fff; color: var(--ink);
+}
+.palette-list {
+  list-style: none; margin: 0; padding: 0; overflow-y: auto;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 8px;
+}
+.palette-list li[hidden] { display: none; }
+.palette-list a {
+  display: flex; flex-direction: column; padding: 8px 10px;
+  background: var(--cream-2); border: 2px solid var(--ink);
+  color: var(--ink); text-decoration: none; font-weight: 700;
+}
+.palette-list a span { font-weight: 400; font-size: 13px; color: var(--muted); }
+.palette-list a:hover, .palette-list a.is-highlighted { background: var(--lime); }
+.palette-hint { margin: 0; font-size: 13px; color: var(--muted); }
+
+/* ---------- Small screens ---------- */
+@media (max-width: 700px) {
+  .topbar { padding: 6px 10px; }
+  .topnav { margin-left: 0; width: 100%; gap: 8px; }
+  .search-btn { margin-left: auto; }
+  .win-body { padding: 18px 16px; }
+  .icon { width: 84px; }
+  .taskbar-link.hide-sm { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .boot .cursor { animation: none; }
+  .boot { transition: none; }
+}

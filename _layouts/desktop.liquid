@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'en' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title }} | {{ site.first_name }} {{ site.last_name }}</title>
+    <meta name="description" content="{{ site.description | strip_newlines | escape }}">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>{{ site.icon | default: '🛡️' }}</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=VT323&family=Inter:wght@400;600&display=swap">
+    <link rel="stylesheet" href="{{ '/assets/css/desktop.css' | relative_url }}">
+  </head>
+
+  <body>
+    <a class="skip-link" href="#windows">Skip to content</a>
+
+    <!-- Menu bar -->
+    <header class="menubar" role="banner">
+      <div class="menubar-left">
+        <span class="menu-brand">{{ site.first_name }} {{ site.last_name }}</span>
+        <span class="menu-item">Portfolio</span>
+      </div>
+      <div class="menubar-right">
+        <span class="menu-item" id="clock" aria-live="off"></span>
+      </div>
+    </header>
+
+    <!-- Desktop icons -->
+    <nav class="desktop-icons" aria-label="Desktop">
+      <button class="icon" type="button" data-open="win-about">
+        <span class="icon-glyph" aria-hidden="true">👩‍💻</span>
+        <span class="icon-label">About Me</span>
+      </button>
+      <button class="icon" type="button" data-open="win-experience">
+        <span class="icon-glyph" aria-hidden="true">💼</span>
+        <span class="icon-label">Experience</span>
+      </button>
+      <button class="icon" type="button" data-open="win-education">
+        <span class="icon-glyph" aria-hidden="true">🎓</span>
+        <span class="icon-label">Education</span>
+      </button>
+      <button class="icon" type="button" data-open="win-projects">
+        <span class="icon-glyph" aria-hidden="true">🗂️</span>
+        <span class="icon-label">Projects</span>
+      </button>
+      <button class="icon" type="button" data-open="win-news">
+        <span class="icon-glyph" aria-hidden="true">📰</span>
+        <span class="icon-label">News</span>
+      </button>
+      <button class="icon" type="button" data-open="win-contact">
+        <span class="icon-glyph" aria-hidden="true">✉️</span>
+        <span class="icon-label">Contact</span>
+      </button>
+    </nav>
+
+    <main id="windows" class="windows">
+
+      <!-- About -->
+      <section class="window" id="win-about" role="dialog" aria-labelledby="win-about-title" hidden>
+        <div class="titlebar">
+          <span class="title" id="win-about-title">About Me</span>
+          <span class="controls">
+            <button type="button" class="ctl min" aria-label="Minimize">_</button>
+            <button type="button" class="ctl close" aria-label="Close">×</button>
+          </span>
+        </div>
+        <div class="window-body">
+          <div class="about-head">
+            <img src="{{ '/assets/img/profile_pic.jpg' | relative_url }}" alt="Portrait of {{ site.first_name }} {{ site.last_name }}">
+            <div>
+              <h2>{{ site.first_name }} {{ site.last_name }}</h2>
+              <p class="subtle">{{ page.subtitle }}</p>
+            </div>
+          </div>
+          <p class="tags">Incident Response · Malware Detection · Security Monitoring · Microsoft Defender · Endpoint Detection · Threat Hunting · VAPT</p>
+          <p>I've always believed career twists lead to the right path. After SAP techno-functional consulting, I found my passion in cybersecurity as a SOC Analyst at Kryptos Technologies, thriving on threat monitoring and incident response.</p>
+          <p>I leverage Microsoft Intune and Defender for endpoint security, craft policies, analyze phishing, and blend SAP user management expertise with threat hunting.</p>
+          <p>Outside work, I volunteer with the ISC2 Toronto Chapter, lead Leading Cyber Ladies, and serve as Program Director at Ilaiya Thalaimurai, designing crash courses and mentoring students while exploring AI in cybersecurity.</p>
+          <p class="subtle">Certifications: Microsoft SC-200, CompTIA Security+, ISC² Certified in Cybersecurity (CC).</p>
+          <p><a href="{{ '/about/' | relative_url }}">Read the full about page →</a></p>
+        </div>
+      </section>
+
+      <!-- Experience -->
+      <section class="window" id="win-experience" role="dialog" aria-labelledby="win-experience-title" hidden>
+        <div class="titlebar">
+          <span class="title" id="win-experience-title">Experience</span>
+          <span class="controls">
+            <button type="button" class="ctl min" aria-label="Minimize">_</button>
+            <button type="button" class="ctl close" aria-label="Close">×</button>
+          </span>
+        </div>
+        <div class="window-body">
+          {% for section in site.data.cv %}
+            {% if section.title == 'Experience' %}
+              {% for item in section.contents %}
+                <article class="entry">
+                  <h3>{{ item.title }}</h3>
+                  <p class="subtle">{{ item.institution }} · {{ item.year }}</p>
+                  {% if item.description %}
+                    <ul>
+                      {% for d in item.description %}<li>{{ d }}</li>{% endfor %}
+                    </ul>
+                  {% endif %}
+                </article>
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section class="window" id="win-education" role="dialog" aria-labelledby="win-education-title" hidden>
+        <div class="titlebar">
+          <span class="title" id="win-education-title">Education</span>
+          <span class="controls">
+            <button type="button" class="ctl min" aria-label="Minimize">_</button>
+            <button type="button" class="ctl close" aria-label="Close">×</button>
+          </span>
+        </div>
+        <div class="window-body">
+          {% for section in site.data.cv %}
+            {% if section.title == 'Education' %}
+              {% for item in section.contents %}
+                <article class="entry">
+                  <h3>{{ item.title }}</h3>
+                  <p class="subtle">{{ item.institution }} · {{ item.year }}</p>
+                  {% if item.description %}
+                    <ul>
+                      {% for d in item.description %}<li>{{ d }}</li>{% endfor %}
+                    </ul>
+                  {% endif %}
+                </article>
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </section>
+
+      <!-- Projects -->
+      <section class="window" id="win-projects" role="dialog" aria-labelledby="win-projects-title" hidden>
+        <div class="titlebar">
+          <span class="title" id="win-projects-title">Projects</span>
+          <span class="controls">
+            <button type="button" class="ctl min" aria-label="Minimize">_</button>
+            <button type="button" class="ctl close" aria-label="Close">×</button>
+          </span>
+        </div>
+        <div class="window-body">
+          {% assign projects = site.projects | sort: 'importance' %}
+          {% for p in projects %}
+            <article class="entry">
+              <h3><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
+              {% if p.description %}<p>{{ p.description }}</p>{% endif %}
+              {% if p.category %}<p class="subtle">{{ p.category }}</p>{% endif %}
+            </article>
+          {% endfor %}
+        </div>
+      </section>
+
+      <!-- News -->
+      <section class="window" id="win-news" role="dialog" aria-labelledby="win-news-title" hidden>
+        <div class="titlebar">
+          <span class="title" id="win-news-title">News</span>
+          <span class="controls">
+            <button type="button" class="ctl min" aria-label="Minimize">_</button>
+            <button type="button" class="ctl close" aria-label="Close">×</button>
+          </span>
+        </div>
+        <div class="window-body">
+          {% assign news_items = site.news | sort: 'start_date' | reverse %}
+          {% for n in news_items limit: 12 %}
+            <article class="entry">
+              <p class="subtle">{{ n.start_date | date: '%b %Y' }}</p>
+              <p>{{ n.content | strip_html | strip | truncatewords: 30 }}</p>
+            </article>
+          {% endfor %}
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section class="window" id="win-contact" role="dialog" aria-labelledby="win-contact-title" hidden>
+        <div class="titlebar">
+          <span class="title" id="win-contact-title">Contact</span>
+          <span class="controls">
+            <button type="button" class="ctl min" aria-label="Minimize">_</button>
+            <button type="button" class="ctl close" aria-label="Close">×</button>
+          </span>
+        </div>
+        <div class="window-body">
+          <ul class="links">
+            <li><a href="mailto:{{ site.data.socials.email }}">✉️ {{ site.data.socials.email }}</a></li>
+            {% if site.data.socials.linkedin_username %}
+              <li><a href="https://www.linkedin.com/in/{{ site.data.socials.linkedin_username }}/" target="_blank" rel="noopener">LinkedIn</a></li>
+            {% endif %}
+            {% if site.data.socials.github_username %}
+              <li><a href="https://github.com/{{ site.data.socials.github_username }}" target="_blank" rel="noopener">GitHub</a></li>
+            {% endif %}
+          </ul>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Taskbar -->
+    <footer class="taskbar" role="contentinfo">
+      <div class="taskbar-items" id="taskbar-items"></div>
+    </footer>
+
+    <script src="{{ '/assets/js/desktop.js' | relative_url }}" defer></script>
+  </body>
+</html>

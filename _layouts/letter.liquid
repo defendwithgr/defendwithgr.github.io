@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="{{ site.lang | default: 'en' }}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title }} | {{ site.first_name }} {{ site.last_name }}</title>
+    <meta name="description" content="{{ site.description | strip_newlines | escape }}">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>{{ site.icon | default: '🛡️' }}</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&family=VT323&display=swap">
+    <link rel="stylesheet" href="{{ '/assets/css/letter.css' | relative_url }}">
+  </head>
+
+  <body>
+    <!-- Startup screen (skippable) -->
+    <div class="boot" id="boot" role="status" aria-live="polite">
+      <p>Loading portfolio<span class="cursor" aria-hidden="true">_</span></p>
+      <button type="button" class="boot-skip" id="boot-skip">ESC skip</button>
+    </div>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Menu bar -->
+    <header class="topbar">
+      <a class="brand" href="{{ '/' | relative_url }}">
+        <span class="brand-mark" aria-hidden="true">{{ site.icon | default: '🛡️' }}</span>
+        {{ site.first_name }} {{ site.last_name }}
+      </a>
+      <nav class="topnav" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="{{ '/projects/' | relative_url }}">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button type="button" class="search-btn" id="search-open" aria-haspopup="dialog">
+        Find <kbd>⌘ K</kbd>
+      </button>
+    </header>
+
+    <main id="main">
+      <!-- Hero window -->
+      <section class="win hero-win" aria-labelledby="hero-title">
+        <div class="titlebar">
+          <span class="title" id="hero-title">start_here</span>
+          <span><span class="ctl" aria-hidden="true">_</span><span class="ctl" aria-hidden="true">×</span></span>
+        </div>
+        <div class="win-body hero">
+          <p class="eyebrow">Hi, I'm {{ site.first_name }}.</p>
+          <h1>Security, one alert at a time.</h1>
+          <p class="tagline">{{ page.subtitle }}</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#experience">See my experience</a>
+            <a class="btn" href="{{ '/projects/' | relative_url }}">Browse projects</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Desktop icons -->
+      <nav class="icons" aria-label="Quick links">
+        <a class="icon" href="#about"><span class="glyph" aria-hidden="true">📄</span>About me</a>
+        <a class="icon" href="#experience"><span class="glyph" aria-hidden="true">💼</span>Experience</a>
+        <a class="icon" href="{{ '/projects/' | relative_url }}"><span class="glyph" aria-hidden="true">🗂️</span>Projects</a>
+        <a class="icon" href="#contact"><span class="glyph" aria-hidden="true">✉️</span>Contact</a>
+      </nav>
+
+      <!-- About window -->
+      <section class="win letter-win" id="about" aria-labelledby="about-title">
+        <div class="titlebar">
+          <span class="title">about_me.txt</span>
+          <span><span class="ctl" aria-hidden="true">_</span><span class="ctl" aria-hidden="true">×</span></span>
+        </div>
+        <div class="win-body">
+          <h2 id="about-title">About me</h2>
+          <p>I've always believed career twists lead to the right path. After SAP techno-functional consulting, I found my passion in cybersecurity as a SOC Analyst at Kryptos Technologies, where I thrive on threat monitoring and incident response.</p>
+          <p>I work with Microsoft Intune and Defender for endpoint security, write security policies, analyze phishing, and bring my SAP user management background into threat hunting.</p>
+          <p>Outside work I volunteer with the ISC2 Toronto Chapter, lead Leading Cyber Ladies, and serve as Program Director at Ilaiya Thalaimurai, where I design crash courses and mentor students.</p>
+          <p>Thanks for stopping by.<br><span class="sign">{{ site.first_name }}</span></p>
+          <p class="letter-links">
+            <a href="{{ '/about/' | relative_url }}">Full story</a> ·
+            <a href="{{ '/projects/' | relative_url }}">Projects</a> ·
+            <a href="#contact">Get in touch</a>
+          </p>
+        </div>
+      </section>
+
+      <!-- Experience & education window -->
+      <section class="win section-win" id="experience" aria-labelledby="exp-title">
+        <div class="titlebar">
+          <span class="title">experience</span>
+          <span><span class="ctl" aria-hidden="true">_</span><span class="ctl" aria-hidden="true">×</span></span>
+        </div>
+        <div class="win-body">
+          <h2 id="exp-title">Experience</h2>
+          <div class="cards">
+            {% for section in site.data.cv %}
+              {% if section.title == 'Experience' or section.title == 'Education' %}
+                {% for item in section.contents %}
+                  <article class="card">
+                    <p class="card-kicker">{{ section.title }} · {{ item.year }}</p>
+                    <h3>{{ item.title }}</h3>
+                    <p class="subtle">{{ item.institution }}</p>
+                    {% if item.description %}
+                      <ul>{% for d in item.description limit: 3 %}<li>{{ d }}</li>{% endfor %}</ul>
+                    {% endif %}
+                  </article>
+                {% endfor %}
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects window -->
+      <section class="win section-win" aria-labelledby="proj-title">
+        <div class="titlebar">
+          <span class="title">projects</span>
+          <span><span class="ctl" aria-hidden="true">_</span><span class="ctl" aria-hidden="true">×</span></span>
+        </div>
+        <div class="win-body">
+          <h2 id="proj-title">Projects</h2>
+          <div class="cards">
+            {% assign projects = site.projects | sort: 'importance' %}
+            {% for p in projects %}
+              <article class="card">
+                <p class="card-kicker">{{ p.category }}</p>
+                <h3><a href="{{ p.url | relative_url }}">{{ p.title }}</a></h3>
+                {% if p.description %}<p>{{ p.description }}</p>{% endif %}
+              </article>
+            {% endfor %}
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact window -->
+      <section class="win section-win" id="contact" aria-labelledby="contact-title">
+        <div class="titlebar">
+          <span class="title">contact</span>
+          <span><span class="ctl" aria-hidden="true">_</span><span class="ctl" aria-hidden="true">×</span></span>
+        </div>
+        <div class="win-body">
+          <h2 id="contact-title">Contact</h2>
+          <ul class="contact-list">
+            <li><a href="mailto:{{ site.data.socials.email }}">{{ site.data.socials.email }}</a></li>
+            {% if site.data.socials.linkedin_username %}
+              <li><a href="https://www.linkedin.com/in/{{ site.data.socials.linkedin_username }}/" target="_blank" rel="noopener">LinkedIn</a></li>
+            {% endif %}
+            {% if site.data.socials.github_username %}
+              <li><a href="https://github.com/{{ site.data.socials.github_username }}" target="_blank" rel="noopener">GitHub</a></li>
+            {% endif %}
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <!-- Taskbar -->
+    <footer class="taskbar" role="contentinfo">
+      <a class="start" href="{{ '/' | relative_url }}">Start</a>
+      <a class="taskbar-link" href="#about">About</a>
+      <a class="taskbar-link hide-sm" href="#experience">Experience</a>
+      <a class="taskbar-link" href="{{ '/projects/' | relative_url }}">Projects</a>
+      <a class="taskbar-link hide-sm" href="#contact">Contact</a>
+      <span class="taskbar-clock">© {{ 'now' | date: '%Y' }}</span>
+    </footer>
+
+    <!-- Find / search window -->
+    <div class="palette" id="palette" role="dialog" aria-modal="true" aria-label="Find" hidden>
+      <div class="palette-box">
+        <div class="titlebar"><span class="title">find</span><span class="ctl" aria-hidden="true">×</span></div>
+        <div class="palette-inner">
+          <input type="search" id="palette-input" placeholder="Type to find a section or project…" aria-label="Find a section or project" autocomplete="off">
+          <ul class="palette-list" id="palette-list">
+            <li><a href="#about" data-search="about me story introduction">About me <span>A short introduction</span></a></li>
+            <li><a href="#experience" data-search="experience work soc analyst job teaching">Experience <span>Roles and education</span></a></li>
+            <li><a href="{{ '/about/' | relative_url }}" data-search="about story bio full">Full story <span>The longer version</span></a></li>
+            <li><a href="{{ '/projects/' | relative_url }}" data-search="projects work portfolio">Projects <span>Everything I've built</span></a></li>
+            <li><a href="#contact" data-search="contact email linkedin github">Contact <span>Get in touch</span></a></li>
+            {% for p in site.projects %}
+              <li><a href="{{ p.url | relative_url }}" data-search="{{ p.title }} {{ p.category }} {{ p.description }}">{{ p.title }} <span>{{ p.description }}</span></a></li>
+            {% endfor %}
+          </ul>
+          <p class="palette-hint">Type to filter · ↑ ↓ to move · Enter opens · Esc closes</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="{{ '/assets/js/letter.js' | relative_url }}" defer></script>
+  </body>
+</html>
